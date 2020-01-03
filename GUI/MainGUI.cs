@@ -130,5 +130,20 @@ namespace GUI
             report.DataSource = KhachHangBUS.Instance.DSKhachHang();
             report.ShowPreviewDialog();
         }
+        private void btnProfile_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ProfileGUI profileGUI = new ProfileGUI();
+            AddTabControl(profileGUI, "Profile");
+        }
+        private void btnRole_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            RoleGUI roleGUI = new RoleGUI();
+            AddTabControl(roleGUI, "Role");
+        }
+        private void btnUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            UsersGUI usersGUI = new UsersGUI();
+            AddTabControl(usersGUI, "Users");
+        }
     }
 }

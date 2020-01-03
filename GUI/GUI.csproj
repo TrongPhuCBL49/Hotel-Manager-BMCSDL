@@ -189,6 +189,12 @@
     <Compile Include="PhongGUI.Designer.cs">
       <DependentUpon>PhongGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileGUI.Designer.cs">
+      <DependentUpon>ProfileGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLKSModel.Context.cs">
@@ -206,14 +212,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLKSModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="SuDungDichVu.cs">
-      <DependentUpon>QLKSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="test.cs">
+    <Compile Include="RoleGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
+    <Compile Include="RoleGUI.Designer.cs">
+      <DependentUpon>RoleGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuDungDichVu.cs">
+      <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TrangThai.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
@@ -266,6 +272,9 @@
     <EmbeddedResource Include="PhongGUI.resx">
       <DependentUpon>PhongGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfileGUI.resx">
+      <DependentUpon>ProfileGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -277,8 +286,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="test.resx">
-      <DependentUpon>test.cs</DependentUpon>
+    <EmbeddedResource Include="RoleGUI.resx">
+      <DependentUpon>RoleGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersGUI.resx">
       <DependentUpon>UsersGUI.cs</DependentUpon>

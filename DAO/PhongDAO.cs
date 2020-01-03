@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -36,6 +37,7 @@ namespace DAO
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable tbl = new DataTable();
             tbl.Load(dr);
+            MessageBox.Show("đã chạy");
             return tbl;
         }
 

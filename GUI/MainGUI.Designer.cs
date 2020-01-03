@@ -51,6 +51,7 @@
             this.btnDSNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnDatPhong = new DevExpress.XtraBars.BarButtonItem();
             this.btnDSKhachHang = new DevExpress.XtraBars.BarButtonItem();
+            this.lblUsername = new DevExpress.XtraBars.BarStaticItem();
             this.pageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -67,7 +68,10 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabMain = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.lblUsername = new DevExpress.XtraBars.BarStaticItem();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnProfile = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRole = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUser = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.tabMain.SuspendLayout();
@@ -99,9 +103,12 @@
             this.btnDSNhanVien,
             this.btnDatPhong,
             this.btnDSKhachHang,
-            this.lblUsername});
+            this.lblUsername,
+            this.btnProfile,
+            this.btnRole,
+            this.btnUser});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 23;
+            this.ribbon.MaxItemId = 26;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.lblUsername);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -123,6 +130,7 @@
             // btnChucDanh
             // 
             this.btnChucDanh.Caption = "Chức danh";
+            this.btnChucDanh.Enabled = false;
             this.btnChucDanh.Id = 2;
             this.btnChucDanh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChucDanh.ImageOptions.Image")));
             this.btnChucDanh.Name = "btnChucDanh";
@@ -151,6 +159,7 @@
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.Caption = "Đổi mật khẩu";
+            this.btnDoiMatKhau.Enabled = false;
             this.btnDoiMatKhau.Id = 5;
             this.btnDoiMatKhau.ImageOptions.Image = global::GUI.Properties.Resources.key__1_;
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
@@ -179,6 +188,7 @@
             // btnAbout
             // 
             this.btnAbout.Caption = "About";
+            this.btnAbout.Enabled = false;
             this.btnAbout.Id = 8;
             this.btnAbout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.ImageOptions.Image")));
             this.btnAbout.Name = "btnAbout";
@@ -194,6 +204,7 @@
             // btnLoaiPhong
             // 
             this.btnLoaiPhong.Caption = "Loại phòng";
+            this.btnLoaiPhong.Enabled = false;
             this.btnLoaiPhong.Id = 10;
             this.btnLoaiPhong.ImageOptions.Image = global::GUI.Properties.Resources.house__5_;
             this.btnLoaiPhong.Name = "btnLoaiPhong";
@@ -222,6 +233,7 @@
             // btnDichVu
             // 
             this.btnDichVu.Caption = "Dịch vụ";
+            this.btnDichVu.Enabled = false;
             this.btnDichVu.Id = 13;
             this.btnDichVu.ImageOptions.Image = global::GUI.Properties.Resources.wine_bottle;
             this.btnDichVu.Name = "btnDichVu";
@@ -252,6 +264,7 @@
             // btnKhachHang
             // 
             this.btnKhachHang.Caption = "Hồ sơ khách hàng";
+            this.btnKhachHang.Enabled = false;
             this.btnKhachHang.Id = 16;
             this.btnKhachHang.ImageOptions.Image = global::GUI.Properties.Resources.user;
             this.btnKhachHang.Name = "btnKhachHang";
@@ -262,6 +275,7 @@
             // btnSuDungDichVu
             // 
             this.btnSuDungDichVu.Caption = "Sử dụng dịch vụ";
+            this.btnSuDungDichVu.Enabled = false;
             this.btnSuDungDichVu.Id = 17;
             this.btnSuDungDichVu.ImageOptions.Image = global::GUI.Properties.Resources.wine_bottle__1_;
             this.btnSuDungDichVu.Name = "btnSuDungDichVu";
@@ -271,6 +285,7 @@
             // btnThanhToanPhong
             // 
             this.btnThanhToanPhong.Caption = "Thanh toán phòng";
+            this.btnThanhToanPhong.Enabled = false;
             this.btnThanhToanPhong.Id = 18;
             this.btnThanhToanPhong.ImageOptions.Image = global::GUI.Properties.Resources.cash;
             this.btnThanhToanPhong.Name = "btnThanhToanPhong";
@@ -290,6 +305,7 @@
             // btnDatPhong
             // 
             this.btnDatPhong.Caption = "Đặt phòng";
+            this.btnDatPhong.Enabled = false;
             this.btnDatPhong.Id = 20;
             this.btnDatPhong.ImageOptions.Image = global::GUI.Properties.Resources.placeholder;
             this.btnDatPhong.Name = "btnDatPhong";
@@ -307,11 +323,18 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnDSKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSKhachHang_ItemClick);
             // 
+            // lblUsername
+            // 
+            this.lblUsername.Id = 22;
+            this.lblUsername.ImageOptions.Image = global::GUI.Properties.Resources.user;
+            this.lblUsername.Name = "lblUsername";
+            // 
             // pageHeThong
             // 
             this.pageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup4,
+            this.ribbonPageGroup10,
             this.ribbonPageGroup5});
             this.pageHeThong.Name = "pageHeThong";
             this.pageHeThong.Text = "Hệ thống";
@@ -428,11 +451,43 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(2180, 1081);
             this.xtraTabPage1.Text = "Trang chủ";
             // 
-            // lblUsername
+            // ribbonPageGroup10
             // 
-            this.lblUsername.Id = 22;
-            this.lblUsername.ImageOptions.Image = global::GUI.Properties.Resources.user;
-            this.lblUsername.Name = "lblUsername";
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnProfile);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnRole);
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnUser);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            this.ribbonPageGroup10.Text = "Quản trị tài khoản";
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Caption = "Profile";
+            this.btnProfile.Id = 23;
+            this.btnProfile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnProfile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProfile_ItemClick);
+            // 
+            // btnRole
+            // 
+            this.btnRole.Caption = "Role";
+            this.btnRole.Id = 24;
+            this.btnRole.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnRole.Name = "btnRole";
+            this.btnRole.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnRole.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRole_ItemClick);
+            // 
+            // btnUser
+            // 
+            this.btnUser.Caption = "User";
+            this.btnUser.Id = 25;
+            this.btnUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnUser.Name = "btnUser";
+            this.btnUser.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUser_ItemClick);
             // 
             // MainGUI
             // 
@@ -498,5 +553,9 @@
         private DevExpress.XtraBars.BarButtonItem btnDatPhong;
         private DevExpress.XtraBars.BarButtonItem btnDSKhachHang;
         private DevExpress.XtraBars.BarStaticItem lblUsername;
+        private DevExpress.XtraBars.BarButtonItem btnProfile;
+        private DevExpress.XtraBars.BarButtonItem btnRole;
+        private DevExpress.XtraBars.BarButtonItem btnUser;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
     }
 }

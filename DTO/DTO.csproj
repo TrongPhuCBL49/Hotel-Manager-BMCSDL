@@ -62,10 +62,13 @@
     <Compile Include="LoaiPhongDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />
     <Compile Include="PhongDTO.cs" />
+    <Compile Include="ProfileDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleDTO.cs" />
     <Compile Include="SuDungDichVuDTO.cs" />
     <Compile Include="UserDTO.cs" />
+    <Compile Include="UsersDTO.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
