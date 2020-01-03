@@ -33,14 +33,14 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.linkQuenMatKhau = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelDangNhap
@@ -67,7 +67,7 @@
             this.groupControl1.Appearance.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.linkQuenMatKhau);
             this.groupControl1.Controls.Add(this.txtMatKhau);
-            this.groupControl1.Controls.Add(this.txtMaNhanVien);
+            this.groupControl1.Controls.Add(this.txtUsername);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Location = new System.Drawing.Point(38, 38);
@@ -91,32 +91,32 @@
             this.txtMatKhau.Location = new System.Drawing.Point(289, 177);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Properties.PasswordChar = '9';
-            this.txtMatKhau.Size = new System.Drawing.Size(368, 42);
+            this.txtMatKhau.Size = new System.Drawing.Size(368, 50);
             this.txtMatKhau.TabIndex = 2;
             // 
-            // txtMaNhanVien
+            // txtUsername
             // 
-            this.txtMaNhanVien.EditValue = "";
-            this.txtMaNhanVien.Location = new System.Drawing.Point(289, 85);
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Size = new System.Drawing.Size(368, 42);
-            this.txtMaNhanVien.TabIndex = 1;
+            this.txtUsername.EditValue = "";
+            this.txtUsername.Location = new System.Drawing.Point(289, 85);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(368, 50);
+            this.txtUsername.TabIndex = 1;
             // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(38, 181);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(135, 34);
+            this.labelControl2.Size = new System.Drawing.Size(123, 33);
             this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Mật khẩu: ";
+            this.labelControl2.Text = "Password:";
             // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(38, 89);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(168, 33);
+            this.labelControl1.Size = new System.Drawing.Size(130, 33);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Mã nhân viên:";
+            this.labelControl1.Text = "Username:";
             // 
             // DangNhapGUI
             // 
@@ -135,7 +135,7 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,7 +147,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.HyperlinkLabelControl linkQuenMatKhau;
         private DevExpress.XtraEditors.TextEdit txtMatKhau;
-        private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
+        private DevExpress.XtraEditors.TextEdit txtUsername;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

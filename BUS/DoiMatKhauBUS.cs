@@ -26,7 +26,7 @@ namespace BUS
         public bool KiemTraPass(string idNhanVien, string pass)
         {
             UserDTO user = new UserDTO();
-            user.IdNhanVien = idNhanVien;
+            user.Username = idNhanVien;
             user.Pass = pass;
             return DoiMatKhauDAO.Instance.KiemTraPass(user);
         }
@@ -34,7 +34,7 @@ namespace BUS
         public bool DoiMatKhau(string idNhanVien, string pass)
         {
             UserDTO user = new UserDTO();
-            user.IdNhanVien = idNhanVien;
+            user.Username = idNhanVien;
             user.Pass = pass;
             return DoiMatKhauDAO.Instance.DoiMatKhau(user);
         }

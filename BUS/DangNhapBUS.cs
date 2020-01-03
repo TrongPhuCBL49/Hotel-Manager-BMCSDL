@@ -25,7 +25,7 @@ namespace BUS
         public bool KiemTraUser(string idNhanVien, string pass)
         {
             UserDTO user = new UserDTO();
-            user.IdNhanVien = idNhanVien;
+            user.Username = idNhanVien;
             user.Pass = pass;
             return DangNhapDAO.Instance.KiemTraUser(user);
         }

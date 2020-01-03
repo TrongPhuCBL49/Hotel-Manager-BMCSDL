@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class DoiMatKhauGUI : DevExpress.XtraEditors.XtraUserControl
     {
-        private string IdNhanVien = DangNhapGUI.IdNhanVien;
+        private string Username = DangNhapGUI.Username;
         public DoiMatKhauGUI()
         {
             InitializeComponent();
@@ -22,10 +22,10 @@ namespace GUI
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (DoiMatKhauBUS.Instance.KiemTraPass(IdNhanVien, txtPassCu.Text))
+            if (DoiMatKhauBUS.Instance.KiemTraPass(Username, txtPassCu.Text))
                 if (txtPassMoi.Text == txtXacNhanPass.Text)
                 {
-                    if (DoiMatKhauBUS.Instance.DoiMatKhau(IdNhanVien, txtPassMoi.Text))
+                    if (DoiMatKhauBUS.Instance.DoiMatKhau(Username, txtPassMoi.Text))
                         MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Lỗi!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

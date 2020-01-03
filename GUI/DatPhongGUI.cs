@@ -51,12 +51,12 @@ namespace GUI
             cboKhachHang.SelectedIndex = 0;
             cboPhong.SelectedIndex = 0;
             txtNhanTenPhong.DataBindings.Add("Text", cboPhong, "Text");
-            txtTenNhanVienLap.Text = DatPhongBUS.Instance.TenNhanVien(DangNhapGUI.IdNhanVien);
+            txtTenNhanVienLap.Text = DatPhongBUS.Instance.TenNhanVien(DangNhapGUI.Username);
         }
 
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
-            if (DatPhongBUS.Instance.ThemBangThuePhong(DangNhapGUI.IdNhanVien, txtID.Text, cboPhong.Text, cboNgayDatPhong.DateTime, cboNgayTraPhong.DateTime, txtTienDatCoc.Text))
+            if (DatPhongBUS.Instance.ThemBangThuePhong(DangNhapGUI.Username, txtID.Text, cboPhong.Text, cboNgayDatPhong.DateTime, cboNgayTraPhong.DateTime, txtTienDatCoc.Text))
             {
                 DatPhongBUS.Instance.UpdateTrangThaiPhong(cboPhong.Text);
                 MessageBox.Show("Đặt phòng thành công!");

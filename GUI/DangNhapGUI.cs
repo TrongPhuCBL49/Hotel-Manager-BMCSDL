@@ -13,13 +13,13 @@ namespace GUI
 {
     public partial class DangNhapGUI : DevExpress.XtraEditors.XtraForm
     {
-        public static string IdNhanVien = "";
+        public static string Username = "";
         public static int IdChucDanh = -1;
 
         public DangNhapGUI()
         {
             InitializeComponent();
-            txtMaNhanVien.Focus();
+            txtUsername.Focus();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -29,17 +29,17 @@ namespace GUI
 
         void login()
         {
-            if (DangNhapBUS.Instance.KiemTraUser(txtMaNhanVien.Text, txtMatKhau.Text))
+            if (DangNhapBUS.Instance.KiemTraUser(txtUsername.Text, txtMatKhau.Text))
             {
-                IdNhanVien = txtMaNhanVien.Text;
-                IdChucDanh = DangNhapBUS.Instance.IdChucDanh(IdNhanVien);
+                Username = txtUsername.Text;
+                //IdChucDanh = DangNhapBUS.Instance.IdChucDanh(IdNhanVien);
                 Form f = new MainGUI();
                 //Xử lý khi đóng form con thì sẽ chạy event show lại form này
                 f.FormClosed += F_FormClosed;
                 f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
                 this.Hide();
-                txtMaNhanVien.Text = "";
+                txtUsername.Text = "";
                 txtMatKhau.Text = "";
             }
             else

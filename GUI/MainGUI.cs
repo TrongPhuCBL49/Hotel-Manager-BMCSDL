@@ -19,6 +19,7 @@ namespace GUI
         public MainGUI()
         {
             InitializeComponent();
+            lblUsername.Caption = DangNhapGUI.Username;
         }
 
 #region thiết lập TabControl
