@@ -209,6 +209,12 @@
     <Compile Include="SuDungDichVu.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="test.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrangThai.cs">
       <DependentUpon>QLKSModel.tt</DependentUpon>
     </Compile>
@@ -271,6 +277,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsersGUI.resx">
       <DependentUpon>UsersGUI.cs</DependentUpon>
     </EmbeddedResource>

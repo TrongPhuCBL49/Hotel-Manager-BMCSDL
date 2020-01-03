@@ -12,6 +12,7 @@ namespace DAO
 {
     public class DataProvider
     {
+        public static OracleConnection conn;
         private static DataProvider instance;
         public static DataProvider Instance
         {
@@ -30,7 +31,7 @@ namespace DAO
         private DataProvider()
         {
         }
-        public static OracleConnection
+        public OracleConnection
                         GetDBConnection(string host, int port, String sid, String user, String password)
         {
             // 'Connection String' kết nối trực tiếp tới Oracle.
@@ -39,7 +40,7 @@ namespace DAO
                     + sid + ")));Password=" + password + ";User ID=" + user;
 
 
-            OracleConnection conn = new OracleConnection();
+            conn = new OracleConnection();
 
             conn.ConnectionString = connString;
 

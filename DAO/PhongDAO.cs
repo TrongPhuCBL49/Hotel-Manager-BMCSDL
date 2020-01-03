@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Data;
+using Oracle.ManagedDataAccess.Client;
 
 namespace DAO
 {
@@ -26,9 +27,16 @@ namespace DAO
 
         public DataTable DSPhong()
         {
-            string query = "Select p.ID, p.Ten, lp.Ten as LoaiPhong, tt.Ten as TrangThai " +
-                           "From Phong as p, LoaiPhong as lp, TrangThai as tt Where p.IDLoai=lp.ID and p.IDTrangThai=tt.ID";
-            return DataProvider.Instance.getDS(query);
+            //string query = "Select p.ID, p.Ten, lp.Ten as LoaiPhong, tt.Ten as TrangThai " +
+            //               "From Phong as p, LoaiPhong as lp, TrangThai as tt Where p.IDLoai=lp.ID and p.IDTrangThai=tt.ID";
+            //return DataProvider.Instance.getDS(query);
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = "select * from QLPHONG";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable tbl = new DataTable();
+            tbl.Load(dr);
+            return tbl;
         }
 
         public bool ThemPhong(PhongDTO phong)

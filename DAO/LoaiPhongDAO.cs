@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Data;
+using Oracle.ManagedDataAccess.Client;
 
 namespace DAO
 {

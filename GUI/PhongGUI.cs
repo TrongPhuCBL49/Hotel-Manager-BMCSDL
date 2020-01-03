@@ -23,13 +23,13 @@ namespace GUI
         private void PhongGUI_Load(object sender, EventArgs e)
         {
             LoadPhong();
-            LoadLoaiPhong();
+            //LoadLoaiPhong();
         }
         void LoadPhong()
         {
             dgvPhong.DataSource = PhongBUS.Instance.DSPhong();
-            LoadTrangThai();
-            BindingPhong();
+            //LoadTrangThai();
+            //BindingPhong();
             isThem = false;
             txtID.Enabled = false;
             btnHuyBo.Enabled = false;

@@ -34,7 +34,7 @@ namespace DAO
             string sid = "orcl";
             string user = userDTO.Username;
             string password = userDTO.Pass;
-            OracleConnection conn = DataProvider.GetDBConnection(host, port, sid, user, password);
+            OracleConnection conn = DataProvider.Instance.GetDBConnection(host, port, sid, user, password);
             try
             {
                 conn.Open();
