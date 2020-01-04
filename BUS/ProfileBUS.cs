@@ -66,10 +66,10 @@ namespace BUS
             }
             return ProfileDAO.Instance.SuaProfile(profile);
         }
-        public bool XoaProfile(string Id)
+        public bool XoaProfile(string Ten)
         {
             ProfileDTO profile = new ProfileDTO();
-            profile.Id = Id;
+            profile.Ten = Ten;
             return ProfileDAO.Instance.XoaProfile(profile);
         }
 

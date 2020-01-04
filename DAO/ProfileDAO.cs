@@ -31,6 +31,10 @@ namespace DAO
             //string query = "Select p.ID, p.Ten, lp.Ten as LoaiPhong, tt.Ten as TrangThai " +
             //               "From Phong as p, LoaiPhong as lp, TrangThai as tt Where p.IDLoai=lp.ID and p.IDTrangThai=tt.ID";
             //return DataProvider.Instance.getDS(query);
+            string sql2 = "ALTER SESSION SET \"_ORACLE_SCRIPT\" = true";
+            OracleCommand cmd2 = DataProvider.conn.CreateCommand();
+            cmd2.CommandText = sql2;
+            cmd2.ExecuteNonQuery();
             OracleCommand cmd = DataProvider.conn.CreateCommand();
             cmd.CommandText = "select * from TTPROFILE";
             cmd.CommandType = CommandType.Text;
@@ -42,27 +46,85 @@ namespace DAO
 
         public bool ThemProfile(ProfileDTO profile)
         {
-            //string[] param = { "@ID", "@Ten", "@IDLoai", "@IdTrangThai" };
-            //object[] values = { phong.Id, phong.Ten, phong.IdLoai, phong.IdTrangThai };
-            //string query = "Insert Into Phong Values(@ID,@Ten,@IDLoai,@IDTrangThai)";
-            //return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
-            return true;
+            // Câu lệnh Insert vào bảng
+            string sql = "Insert into TTPROFILE " +
+                         "values (" + profile.Id + ",'" + profile.Ten + "'," + profile.FalseLogin +
+                         "," + profile.SessionUser + "," + profile.ConnectTime + "," + profile.IdleTime + ")";
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = sql;
+            // Insert Profile vào Oracle
+            string sql2 = "create profile " + profile.Ten + " limit" +
+                          " FAILED_LOGIN_ATTEMPTS " + profile.FalseLogin +
+                          " SESSIONS_PER_USER     " + profile.SessionUser +
+                          " CONNECT_TIME          " + profile.ConnectTime +
+                          " IDLE_TIME             " + profile.IdleTime;
+            OracleCommand cmd2 = DataProvider.conn.CreateCommand();
+            cmd2.CommandText = sql2;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
         }
         public bool SuaProfile(ProfileDTO profile)
         {
-            //string[] param = { "@ID", "@Ten", "@IDLoai", "@IDTrangThai" };
-            //object[] values = { phong.Id, phong.Ten, phong.IdLoai, phong.IdTrangThai };
-            //string query = "Update Phong Set Ten=@Ten, IDLoai=@IDLoai, IDTrangThai=@IDTrangThai Where ID=@ID";
-            //return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
-            return true;
+            // Câu lệnh Update vào bảng
+            string sql = "Update TTPROFILE " +
+                         "set TEN = '" + profile.Ten +
+                         "', FALSELOGIN = " + profile.FalseLogin +
+                         ", SESSIONUSER = " + profile.SessionUser +
+                         ", CONNECTTIME = " + profile.ConnectTime +
+                         ", IDLETIME = " + profile.IdleTime +
+                         " Where ID = " + profile.Id;
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = sql;
+            // Update Profile vào Oracle
+            string sql2 = "Alter profile " + profile.Ten + " limit" +
+                          " FAILED_LOGIN_ATTEMPTS " + profile.FalseLogin +
+                          " SESSIONS_PER_USER     " + profile.SessionUser +
+                          " CONNECT_TIME          " + profile.ConnectTime +
+                          " IDLE_TIME             " + profile.IdleTime;
+            OracleCommand cmd2 = DataProvider.conn.CreateCommand();
+            cmd2.CommandText = sql2;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
         }
         public bool XoaProfile(ProfileDTO profile)
         {
-            //string[] param = { "@ID" };
-            //object[] values = { phong.Id };
-            //string query = "Delete Phong Where ID=@ID";
-            //return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
-            return true;
+            // Câu lệnh Update vào bảng
+            string sql = "Delete From TTProfile where TEN='" + profile.Ten + "'";
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = sql;
+            // Update Profile vào Oracle
+            string sql2 = "Drop Profile " + profile.Ten;
+            OracleCommand cmd2 = DataProvider.conn.CreateCommand();
+            cmd2.CommandText = sql2;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
         }
     }
 }

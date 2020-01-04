@@ -30,6 +30,7 @@ namespace GUI
             BindingProfile();
             isThem = false;
             txtID.Enabled = false;
+            txtTenProfile.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
         }
@@ -75,6 +76,7 @@ namespace GUI
             ClearBinding();
             ClearText();
             txtID.Enabled = true;
+            txtTenProfile.Enabled = true;
             btnHuyBo.Enabled = true;
             btnLuu.Enabled = true;
             btnXoa.Enabled = false;
@@ -100,6 +102,7 @@ namespace GUI
             }
             LoadProfile();
             txtID.Enabled = false;
+            txtTenProfile.Enabled = false;
             btnThem.Enabled = true;
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
@@ -112,7 +115,7 @@ namespace GUI
         {
             if (MessageBox.Show("Xóa profile: " + txtTenProfile.Text + "?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (ProfileBUS.Instance.XoaProfile(txtID.Text))
+                if (ProfileBUS.Instance.XoaProfile(txtTenProfile.Text))
                 {
                     MessageBox.Show("Xóa profile thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearBinding();
@@ -129,6 +132,7 @@ namespace GUI
             btnLuu.Enabled = false;
             btnHuyBo.Enabled = false;
             txtID.Enabled = false;
+            txtTenProfile.Enabled = false;
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
             dgvProfile.Enabled = true;
