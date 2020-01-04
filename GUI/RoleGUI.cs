@@ -23,17 +23,31 @@ namespace GUI
         private void RoleGUI_Load(object sender, EventArgs e)
         {
             LoadRole();
-            //LoadLoaiPhong();
         }
         void LoadRole()
         {
             dgvRole.DataSource = RoleBUS.Instance.DSRole();
-            //LoadTrangThai();
-            //BindingRole();
+            LoadTrangThai();
+            BindingRole();
             isThem = false;
             txtID.Enabled = false;
+            txtTenRole.Enabled = false;
             btnHuyBo.Enabled = false;
             btnLuu.Enabled = false;
+        }
+        void LoadTrangThai()
+        {
+            List<string> TrangThai = new List<string>();
+            TrangThai.Add("1");
+            TrangThai.Add("0");
+            cboSPhong.Properties.Items.AddRange(TrangThai);
+            cboIPhong.Properties.Items.AddRange(TrangThai);
+            cboUPhong.Properties.Items.AddRange(TrangThai);
+            cboDPhong.Properties.Items.AddRange(TrangThai);
+            cboUGia.Properties.Items.AddRange(TrangThai);
+            cboIGia.Properties.Items.AddRange(TrangThai);
+            cboUTen.Properties.Items.AddRange(TrangThai);
+            cboITen.Properties.Items.AddRange(TrangThai);
         }
         public void BindingRole()
         {
@@ -46,9 +60,9 @@ namespace GUI
             cboIPhong.DataBindings.Add("Text", source, "IPHONG", true, DataSourceUpdateMode.OnPropertyChanged);
             cboUPhong.DataBindings.Add("Text", source, "UPHONG", true, DataSourceUpdateMode.OnPropertyChanged);
             cboDPhong.DataBindings.Add("Text", source, "DPHONG", true, DataSourceUpdateMode.OnPropertyChanged);
-            cboSTen.DataBindings.Add("Text", source, "STEN", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboUTen.DataBindings.Add("Text", source, "UTEN", true, DataSourceUpdateMode.OnPropertyChanged);
             cboITen.DataBindings.Add("Text", source, "ITEN", true, DataSourceUpdateMode.OnPropertyChanged);
-            cboSGia.DataBindings.Add("Text", source, "SGIA", true, DataSourceUpdateMode.OnPropertyChanged);
+            cboUGia.DataBindings.Add("Text", source, "UGIA", true, DataSourceUpdateMode.OnPropertyChanged);
             cboIGia.DataBindings.Add("Text", source, "IGIA", true, DataSourceUpdateMode.OnPropertyChanged);
             dgvRole.DataSource = source;
         }
@@ -68,9 +82,9 @@ namespace GUI
             cboIPhong.DataBindings.Clear();
             cboUPhong.DataBindings.Clear();
             cboDPhong.DataBindings.Clear();
-            cboSTen.DataBindings.Clear();
+            cboUTen.DataBindings.Clear();
             cboITen.DataBindings.Clear();
-            cboSGia.DataBindings.Clear();
+            cboUGia.DataBindings.Clear();
             cboIGia.DataBindings.Clear();
             dgvRole.DataBindings.Clear();
         }
@@ -81,6 +95,7 @@ namespace GUI
             ClearBinding();
             ClearText();
             txtID.Enabled = true;
+            txtTenRole.Enabled = true;
             btnHuyBo.Enabled = true;
             btnLuu.Enabled = true;
             btnXoa.Enabled = false;
@@ -92,20 +107,21 @@ namespace GUI
         {
             if (isThem)
             {
-                if (RoleBUS.Instance.ThemRole(txtID.Text, txtTenRole.Text, cboSPhong.Text, cboIPhong.Text, cboUPhong.Text, cboDPhong.Text, cboSTen.Text, cboITen.Text, cboSGia.Text, cboIGia.Text))
+                if (RoleBUS.Instance.ThemRole(txtID.Text, txtTenRole.Text, cboSPhong.Text, cboIPhong.Text, cboUPhong.Text, cboDPhong.Text, cboUTen.Text, cboITen.Text, cboUGia.Text, cboIGia.Text))
                     MessageBox.Show("Thêm Role thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Thêm Role thất bại!");
             }
             else
             {
-                if (RoleBUS.Instance.SuaRole(txtID.Text, txtTenRole.Text, cboSPhong.Text, cboIPhong.Text, cboUPhong.Text, cboDPhong.Text, cboSTen.Text, cboITen.Text, cboSGia.Text, cboIGia.Text))
+                if (RoleBUS.Instance.SuaRole(txtID.Text, txtTenRole.Text, cboSPhong.Text, cboIPhong.Text, cboUPhong.Text, cboDPhong.Text, cboUTen.Text, cboITen.Text, cboUGia.Text, cboIGia.Text))
                     MessageBox.Show("Chỉnh sửa Role thành công!");
                 else
                     MessageBox.Show("Có lỗi xảy ra. Chỉnh sửa Role thất bại!");
             }
             LoadRole();
             txtID.Enabled = false;
+            txtTenRole.Enabled = false;
             btnThem.Enabled = true;
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
@@ -118,7 +134,7 @@ namespace GUI
         {
             if (MessageBox.Show("Xóa Role: " + txtTenRole.Text + "?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (RoleBUS.Instance.XoaRole(txtID.Text))
+                if (RoleBUS.Instance.XoaRole(txtTenRole.Text))
                 {
                     MessageBox.Show("Xóa Role thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearBinding();
@@ -135,6 +151,7 @@ namespace GUI
             btnLuu.Enabled = false;
             btnHuyBo.Enabled = false;
             txtID.Enabled = false;
+            txtTenRole.Enabled = false;
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
             dgvRole.Enabled = true;

@@ -39,9 +39,9 @@
             this.cboITen = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboDPhong = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboIPhong = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cboSGia = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cboUGia = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.cboSTen = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cboUTen = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.cboUPhong = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -64,8 +64,8 @@
             this.IPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.STEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SGIA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.UTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.UGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ITEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.IGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).BeginInit();
@@ -77,8 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboITen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboIPhong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboSGia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboSTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboUGia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboUTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSPhong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenRole.Properties)).BeginInit();
@@ -96,43 +96,47 @@
             this.grpChucNang.Controls.Add(this.btnLuu);
             this.grpChucNang.Controls.Add(this.btnHuyBo);
             this.grpChucNang.Controls.Add(this.btnThem);
-            this.grpChucNang.Location = new System.Drawing.Point(1375, 52);
+            this.grpChucNang.Location = new System.Drawing.Point(1375, 4);
             this.grpChucNang.Name = "grpChucNang";
-            this.grpChucNang.Size = new System.Drawing.Size(570, 369);
+            this.grpChucNang.Size = new System.Drawing.Size(570, 447);
             this.grpChucNang.TabIndex = 18;
             this.grpChucNang.Text = "Chức năng";
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(43, 245);
+            this.btnXoa.Location = new System.Drawing.Point(46, 273);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(212, 70);
             this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(310, 245);
+            this.btnLuu.Location = new System.Drawing.Point(313, 273);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(212, 70);
             this.btnLuu.TabIndex = 12;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnHuyBo
             // 
-            this.btnHuyBo.Location = new System.Drawing.Point(310, 102);
+            this.btnHuyBo.Location = new System.Drawing.Point(313, 130);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.Size = new System.Drawing.Size(212, 70);
             this.btnHuyBo.TabIndex = 10;
             this.btnHuyBo.Text = "Hủy bỏ";
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(43, 102);
+            this.btnThem.Location = new System.Drawing.Point(46, 130);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(212, 70);
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // grpThongTin
             // 
@@ -141,9 +145,9 @@
             this.grpThongTin.Controls.Add(this.cboITen);
             this.grpThongTin.Controls.Add(this.cboDPhong);
             this.grpThongTin.Controls.Add(this.cboIPhong);
-            this.grpThongTin.Controls.Add(this.cboSGia);
+            this.grpThongTin.Controls.Add(this.cboUGia);
             this.grpThongTin.Controls.Add(this.labelControl12);
-            this.grpThongTin.Controls.Add(this.cboSTen);
+            this.grpThongTin.Controls.Add(this.cboUTen);
             this.grpThongTin.Controls.Add(this.labelControl11);
             this.grpThongTin.Controls.Add(this.cboUPhong);
             this.grpThongTin.Controls.Add(this.labelControl10);
@@ -177,6 +181,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboIGia.Size = new System.Drawing.Size(121, 50);
             this.cboIGia.TabIndex = 19;
+            this.cboIGia.Click += new System.EventHandler(this.txt_Click);
             // 
             // cboITen
             // 
@@ -186,6 +191,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboITen.Size = new System.Drawing.Size(121, 50);
             this.cboITen.TabIndex = 19;
+            this.cboITen.Click += new System.EventHandler(this.txt_Click);
             // 
             // cboDPhong
             // 
@@ -195,6 +201,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboDPhong.Size = new System.Drawing.Size(121, 50);
             this.cboDPhong.TabIndex = 19;
+            this.cboDPhong.Click += new System.EventHandler(this.txt_Click);
             // 
             // cboIPhong
             // 
@@ -204,15 +211,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboIPhong.Size = new System.Drawing.Size(121, 50);
             this.cboIPhong.TabIndex = 19;
+            this.cboIPhong.Click += new System.EventHandler(this.txt_Click);
             // 
-            // cboSGia
+            // cboUGia
             // 
-            this.cboSGia.Location = new System.Drawing.Point(784, 354);
-            this.cboSGia.Name = "cboSGia";
-            this.cboSGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboUGia.Location = new System.Drawing.Point(784, 354);
+            this.cboUGia.Name = "cboUGia";
+            this.cboUGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboSGia.Size = new System.Drawing.Size(121, 50);
-            this.cboSGia.TabIndex = 19;
+            this.cboUGia.Size = new System.Drawing.Size(121, 50);
+            this.cboUGia.TabIndex = 19;
+            this.cboUGia.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl12
             // 
@@ -222,14 +231,15 @@
             this.labelControl12.TabIndex = 10;
             this.labelControl12.Text = "Thêm giá phòng:";
             // 
-            // cboSTen
+            // cboUTen
             // 
-            this.cboSTen.Location = new System.Drawing.Point(784, 266);
-            this.cboSTen.Name = "cboSTen";
-            this.cboSTen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboUTen.Location = new System.Drawing.Point(784, 266);
+            this.cboUTen.Name = "cboUTen";
+            this.cboUTen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboSTen.Size = new System.Drawing.Size(121, 50);
-            this.cboSTen.TabIndex = 19;
+            this.cboUTen.Size = new System.Drawing.Size(121, 50);
+            this.cboUTen.TabIndex = 19;
+            this.cboUTen.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl11
             // 
@@ -247,14 +257,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboUPhong.Size = new System.Drawing.Size(121, 50);
             this.cboUPhong.TabIndex = 19;
+            this.cboUPhong.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl10
             // 
             this.labelControl10.Location = new System.Drawing.Point(594, 363);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(189, 33);
+            this.labelControl10.Size = new System.Drawing.Size(189, 34);
             this.labelControl10.TabIndex = 10;
-            this.labelControl10.Text = "Xem giá phòng:";
+            this.labelControl10.Text = "Sửa giá phòng:";
             // 
             // labelControl5
             // 
@@ -268,9 +279,9 @@
             // 
             this.labelControl9.Location = new System.Drawing.Point(594, 275);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(192, 33);
+            this.labelControl9.Size = new System.Drawing.Size(193, 34);
             this.labelControl9.TabIndex = 10;
-            this.labelControl9.Text = "Xem tên phòng:";
+            this.labelControl9.Text = "Sửa tên phòng:";
             // 
             // cboSPhong
             // 
@@ -280,6 +291,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboSPhong.Size = new System.Drawing.Size(121, 50);
             this.cboSPhong.TabIndex = 19;
+            this.cboSPhong.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl4
             // 
@@ -327,6 +339,7 @@
             this.txtTenRole.Name = "txtTenRole";
             this.txtTenRole.Size = new System.Drawing.Size(362, 50);
             this.txtTenRole.TabIndex = 2;
+            this.txtTenRole.Click += new System.EventHandler(this.txt_Click);
             // 
             // grpDanhSach
             // 
@@ -367,8 +380,8 @@
             this.IPHONG,
             this.UPHONG,
             this.DPHONG,
-            this.STEN,
-            this.SGIA,
+            this.UTEN,
+            this.UGIA,
             this.ITEN,
             this.IGIA});
             this.gridView1.DetailHeight = 397;
@@ -436,25 +449,25 @@
             this.DPHONG.VisibleIndex = 5;
             this.DPHONG.Width = 175;
             // 
-            // STEN
+            // UTEN
             // 
-            this.STEN.Caption = "Xem tên phòng";
-            this.STEN.FieldName = "STEN";
-            this.STEN.MinWidth = 19;
-            this.STEN.Name = "STEN";
-            this.STEN.Visible = true;
-            this.STEN.VisibleIndex = 6;
-            this.STEN.Width = 204;
+            this.UTEN.Caption = "Sửa tên phòng";
+            this.UTEN.FieldName = "UTEN";
+            this.UTEN.MinWidth = 19;
+            this.UTEN.Name = "UTEN";
+            this.UTEN.Visible = true;
+            this.UTEN.VisibleIndex = 6;
+            this.UTEN.Width = 204;
             // 
-            // SGIA
+            // UGIA
             // 
-            this.SGIA.Caption = "Xem giá phòng";
-            this.SGIA.FieldName = "SGIA";
-            this.SGIA.MinWidth = 19;
-            this.SGIA.Name = "SGIA";
-            this.SGIA.Visible = true;
-            this.SGIA.VisibleIndex = 7;
-            this.SGIA.Width = 194;
+            this.UGIA.Caption = "Sửa giá phòng";
+            this.UGIA.FieldName = "UGIA";
+            this.UGIA.MinWidth = 19;
+            this.UGIA.Name = "UGIA";
+            this.UGIA.Visible = true;
+            this.UGIA.VisibleIndex = 7;
+            this.UGIA.Width = 194;
             // 
             // ITEN
             // 
@@ -485,6 +498,7 @@
             this.Controls.Add(this.grpDanhSach);
             this.Name = "RoleGUI";
             this.Size = new System.Drawing.Size(1948, 1265);
+            this.Load += new System.EventHandler(this.RoleGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).EndInit();
             this.grpChucNang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpThongTin)).EndInit();
@@ -495,8 +509,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboITen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboIPhong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboSGia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboSTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboUGia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboUTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSPhong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenRole.Properties)).EndInit();
@@ -536,9 +550,9 @@
         private DevExpress.XtraEditors.ComboBoxEdit cboITen;
         private DevExpress.XtraEditors.ComboBoxEdit cboDPhong;
         private DevExpress.XtraEditors.ComboBoxEdit cboIPhong;
-        private DevExpress.XtraEditors.ComboBoxEdit cboSGia;
+        private DevExpress.XtraEditors.ComboBoxEdit cboUGia;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.ComboBoxEdit cboSTen;
+        private DevExpress.XtraEditors.ComboBoxEdit cboUTen;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.ComboBoxEdit cboUPhong;
         private DevExpress.XtraEditors.LabelControl labelControl10;
@@ -548,8 +562,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraGrid.Columns.GridColumn DPHONG;
-        private DevExpress.XtraGrid.Columns.GridColumn STEN;
-        private DevExpress.XtraGrid.Columns.GridColumn SGIA;
+        private DevExpress.XtraGrid.Columns.GridColumn UTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn UGIA;
         private DevExpress.XtraGrid.Columns.GridColumn ITEN;
         private DevExpress.XtraGrid.Columns.GridColumn IGIA;
     }

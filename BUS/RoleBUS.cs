@@ -30,7 +30,7 @@ namespace BUS
             return RoleDAO.Instance.DSRole();
         }
 
-        public bool ThemRole(string Id, string Ten, string SPhong, string IPhong, string UPhong, string DPhong, string STen, string ITen, string SGia, string IGia)
+        public bool ThemRole(string Id, string Ten, string SPhong, string IPhong, string UPhong, string DPhong, string UTen, string ITen, string UGia, string IGia)
         {
             RoleDTO role = new RoleDTO();
             try
@@ -41,9 +41,9 @@ namespace BUS
                 role.IPhong = IPhong;
                 role.UPhong = UPhong;
                 role.DPhong = DPhong;
-                role.STen = STen;
+                role.UTen = UTen;
                 role.ITen = ITen;
-                role.SGia = SGia;
+                role.UGia = UGia;
                 role.IGia = IGia;
             }
             catch (Exception)
@@ -52,7 +52,7 @@ namespace BUS
             }
             return RoleDAO.Instance.ThemRole(role);
         }
-        public bool SuaRole(string Id, string Ten, string SPhong, string IPhong, string UPhong, string DPhong, string STen, string ITen, string SGia, string IGia)
+        public bool SuaRole(string Id, string Ten, string SPhong, string IPhong, string UPhong, string DPhong, string UTen, string ITen, string UGia, string IGia)
         {
             RoleDTO role = new RoleDTO();
             try
@@ -63,9 +63,9 @@ namespace BUS
                 role.IPhong = IPhong;
                 role.UPhong = UPhong;
                 role.DPhong = DPhong;
-                role.STen = STen;
+                role.UTen = UTen;
                 role.ITen = ITen;
-                role.SGia = SGia;
+                role.UGia = UGia;
                 role.IGia = IGia;
             }
             catch (Exception)
@@ -74,10 +74,10 @@ namespace BUS
             }
             return RoleDAO.Instance.SuaRole(role);
         }
-        public bool XoaRole(string Id)
+        public bool XoaRole(string Ten)
         {
             RoleDTO role = new RoleDTO();
-            role.Id = Id;
+            role.Ten = Ten;
             return RoleDAO.Instance.XoaRole(role);
         }
 

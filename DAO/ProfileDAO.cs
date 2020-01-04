@@ -28,9 +28,6 @@ namespace DAO
 
         public DataTable DSProfile()
         {
-            //string query = "Select p.ID, p.Ten, lp.Ten as LoaiPhong, tt.Ten as TrangThai " +
-            //               "From Phong as p, LoaiPhong as lp, TrangThai as tt Where p.IDLoai=lp.ID and p.IDTrangThai=tt.ID";
-            //return DataProvider.Instance.getDS(query);
             string sql2 = "ALTER SESSION SET \"_ORACLE_SCRIPT\" = true";
             OracleCommand cmd2 = DataProvider.conn.CreateCommand();
             cmd2.CommandText = sql2;
@@ -62,8 +59,8 @@ namespace DAO
             cmd2.CommandText = sql2;
             try
             {
-                cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
@@ -94,8 +91,8 @@ namespace DAO
             cmd2.CommandText = sql2;
             try
             {
-                cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
@@ -116,8 +113,8 @@ namespace DAO
             cmd2.CommandText = sql2;
             try
             {
-                cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
