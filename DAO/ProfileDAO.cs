@@ -28,17 +28,24 @@ namespace DAO
 
         public DataTable DSProfile()
         {
-            string sql2 = "ALTER SESSION SET \"_ORACLE_SCRIPT\" = true";
-            OracleCommand cmd2 = DataProvider.conn.CreateCommand();
-            cmd2.CommandText = sql2;
-            cmd2.ExecuteNonQuery();
-            OracleCommand cmd = DataProvider.conn.CreateCommand();
-            cmd.CommandText = "select * from TTPROFILE";
-            cmd.CommandType = CommandType.Text;
-            OracleDataReader dr = cmd.ExecuteReader();
             DataTable tbl = new DataTable();
-            tbl.Load(dr);
-            return tbl;
+            try
+            {
+                string sql2 = "ALTER SESSION SET \"_ORACLE_SCRIPT\" = true";
+                OracleCommand cmd2 = DataProvider.conn.CreateCommand();
+                cmd2.CommandText = sql2;
+                cmd2.ExecuteNonQuery();
+                OracleCommand cmd = DataProvider.conn.CreateCommand();
+                cmd.CommandText = "select * from TTPROFILE";
+                cmd.CommandType = CommandType.Text;
+                OracleDataReader dr = cmd.ExecuteReader();
+                tbl.Load(dr);
+                return tbl;
+            }
+            catch (Exception)
+            {
+                return tbl;
+            }
         }
 
         public bool ThemProfile(ProfileDTO profile)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -27,11 +28,10 @@ namespace DAO
 
         public DataTable DSUsers()
         {
-            //string query = "Select p.ID, p.Ten, lp.Ten as LoaiPhong, tt.Ten as TrangThai " +
-            //               "From Phong as p, LoaiPhong as lp, TrangThai as tt Where p.IDLoai=lp.ID and p.IDTrangThai=tt.ID";
-            //return DataProvider.Instance.getDS(query);
             OracleCommand cmd = DataProvider.conn.CreateCommand();
-            cmd.CommandText = "select * from Users";
+            cmd.CommandText = "select TTNHANVIEN.TEN, USERNAME, QUOTA, TTPROFILE.TEN PROFILE, TTROLE.TEN ROLE, ACTIVE " +
+                              "from TTUSER, TTPROFILE, TTROLE, TTNHANVIEN " +
+                              "where TTNHANVIEN.ID = TTUSER.IDNHANVIEN and TTPROFILE.ID = TTUSER.IDPROFILE and TTROLE.ID = TTUSER.IDROLE ";
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable tbl = new DataTable();
@@ -41,48 +41,156 @@ namespace DAO
 
         public bool ThemUsers(UsersDTO users)
         {
-            //string[] param = { "@ID", "@Ten", "@IDLoai", "@IdTrangThai" };
-            //object[] values = { phong.Id, phong.Ten, phong.IdLoai, phong.IdTrangThai };
-            //string query = "Insert Into Phong Values(@ID,@Ten,@IDLoai,@IDTrangThai)";
-            //return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
-            return true;
+            List<string> query = new List<string>();
+            // Câu lệnh Insert vào bảng
+            string sql = "Insert into TTUSER " +
+                         "values (" + IdNhanVien(users.IdNhanVien) + ",'" + users.Username + "','" + users.Quota +
+                         "'," + IdProfile(users.IdProfile) + "," + IdRole(users.IdRole) + "," + users.Active + ")";
+            query.Add(sql);
+            // Insert User vào Oracle
+            string sql1 = "create user " + users.Username + " identified by " + users.Password;
+            query.Add(sql1);
+            // Them Profile
+            string sql2 = "ALTER USER " + users.Username + " PROFILE " + users.IdProfile;
+            query.Add(sql2);
+            // Them Role
+            string sql3 = "GRANT " + users.IdRole + " TO " + users.Username;
+            query.Add(sql3);
+            // Cap Quota
+            string sql4 = "ALTER USER " + users.Username + " QUOTA " + users.Quota + " ON QLKhachSan";
+            query.Add(sql4);
+            // Active
+            if (users.Active == "1")
+            {
+                string sql5 = "ALTER USER " + users.Username + " ACCOUNT UNLOCK";
+                query.Add(sql5);
+            }
+            else
+            {
+                string sql5 = "ALTER USER " + users.Username + " ACCOUNT LOCK";
+                query.Add(sql5);
+            }
+            try
+            {
+                foreach (var qr in query)
+                {
+                    OracleCommand cmd3 = DataProvider.conn.CreateCommand();
+                    cmd3.CommandText = qr;
+                    cmd3.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
         }
         public bool SuaUsers(UsersDTO users)
         {
-            //string[] param = { "@ID", "@Ten", "@IDLoai", "@IDTrangThai" };
-            //object[] values = { phong.Id, phong.Ten, phong.IdLoai, phong.IdTrangThai };
-            //string query = "Update Phong Set Ten=@Ten, IDLoai=@IDLoai, IDTrangThai=@IDTrangThai Where ID=@ID";
-            //return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
-            return true;
+            List<string> query = new List<string>();
+            // Câu lệnh Insert vào bảng
+            string sql = "Update TTUSER " +
+                         "set IDNHANVIEN = " + IdNhanVien(users.IdNhanVien) +
+                         ", QUOTA = '" + users.Quota +
+                         "', IDPROFILE = " + IdProfile(users.IdProfile) +
+                         ", IDROLE = " + IdRole(users.IdRole) +
+                         ", ACTIVE = " + users.Active +
+                         " Where USERNAME = '" + users.Username + "'";
+            query.Add(sql);
+            // Them Profile
+            string sql2 = "ALTER USER " + users.Username + " PROFILE " + users.IdProfile;
+            query.Add(sql2);
+            // Them Role
+            string sql3 = "GRANT " + users.IdRole + " TO " + users.Username;
+            query.Add(sql3);
+            // Cap Quota
+            string sql4 = "ALTER USER " + users.Username + " QUOTA " + users.Quota + " ON QLKhachSan";
+            query.Add(sql4);
+            // Active
+            if (users.Active == "1")
+            {
+                string sql5 = "ALTER USER " + users.Username + " ACCOUNT UNLOCK";
+                query.Add(sql5);
+            }
+            else
+            {
+                string sql5 = "ALTER USER " + users.Username + " ACCOUNT LOCK";
+                query.Add(sql5);
+            }
+            try
+            {
+                foreach (var qr in query)
+                {
+                    OracleCommand cmd3 = DataProvider.conn.CreateCommand();
+                    cmd3.CommandText = qr;
+                    cmd3.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
         }
         public bool XoaUsers(UsersDTO users)
         {
-            //string[] param = { "@ID" };
-            //object[] values = { phong.Id };
-            //string query = "Delete Phong Where ID=@ID";
-            //return DataProvider.Instance.ExecuteNonQueryPara(query, param, values);
-            return true;
+            // Câu lệnh Update vào bảng
+            string sql = "Delete From TTUser where USERNAME='" + users.Username + "'";
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = sql;
+            // Update Profile vào Oracle
+            string sql2 = "Drop User " + users.Username;
+            OracleCommand cmd2 = DataProvider.conn.CreateCommand();
+            cmd2.CommandText = sql2;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return false;
+            }
         }
         public int IdNhanVien(string nhanVien)
         {
-            //string query = "Select ID From LoaiPhong Where Ten = N'" + loaiPhong + "'";
-            //DataTable dtb = DataProvider.Instance.getDS(query);
-            //return int.Parse(dtb.Rows[0]["ID"].ToString());
-            return 1;
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = "select ID " +
+                              "from TTNHANVIEN " +
+                              "where TEN='" + nhanVien + "'";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable tbl = new DataTable();
+            tbl.Load(dr);
+            return int.Parse(tbl.Rows[0]["ID"].ToString());
         }
         public int IdProfile(string profile)
         {
-            //string query = "Select ID From TrangThai Where Ten = N'" + trangThai + "'";
-            //DataTable dtb = DataProvider.Instance.getDS(query);
-            //return int.Parse(dtb.Rows[0]["ID"].ToString());
-            return 1;
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = "select ID " +
+                              "from TTPROFILE " +
+                              "where TEN='" + profile +"'";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable tbl = new DataTable();
+            tbl.Load(dr);
+            return int.Parse(tbl.Rows[0]["ID"].ToString());
         }
         public int IdRole(string role)
         {
-            //string query = "Select ID From TrangThai Where Ten = N'" + trangThai + "'";
-            //DataTable dtb = DataProvider.Instance.getDS(query);
-            //return int.Parse(dtb.Rows[0]["ID"].ToString());
-            return 1;
+            OracleCommand cmd = DataProvider.conn.CreateCommand();
+            cmd.CommandText = "select ID " +
+                              "from TTROLE " +
+                              "where TEN='" + role +"'";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable tbl = new DataTable();
+            tbl.Load(dr);
+            return int.Parse(tbl.Rows[0]["ID"].ToString());
         }
 
     }

@@ -35,11 +35,11 @@ namespace BUS
             UsersDTO users = new UsersDTO();
             try
             {
-                users.IdNhanVien = UsersDAO.Instance.IdNhanVien(NhanVien);
+                users.IdNhanVien = NhanVien;
                 users.Username = Username;
                 users.Password = Password;
-                users.IdProfile = UsersDAO.Instance.IdProfile(Profile);
-                users.IdRole = UsersDAO.Instance.IdRole(Role);
+                users.IdProfile = Profile;
+                users.IdRole = Role;
                 users.Quota = Quota;
                 users.Active = Active;
             }
@@ -54,11 +54,11 @@ namespace BUS
             UsersDTO users = new UsersDTO();
             try
             {
-                users.IdNhanVien = UsersDAO.Instance.IdNhanVien(NhanVien);
+                users.IdNhanVien = NhanVien;
                 users.Username = Username;
                 users.Password = Password;
-                users.IdProfile = UsersDAO.Instance.IdProfile(Profile);
-                users.IdRole = UsersDAO.Instance.IdRole(Role);
+                users.IdProfile = Profile;
+                users.IdRole = Role;
                 users.Quota = Quota;
                 users.Active = Active;
             }

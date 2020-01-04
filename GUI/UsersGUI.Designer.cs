@@ -34,6 +34,8 @@
             this.btnHuyBo = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.grpThongTin = new DevExpress.XtraEditors.GroupControl();
+            this.cboActive = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cboRole = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboNhanVien = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.cboProfile = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -56,12 +58,12 @@
             this.PROFILE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ROLE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ACTIVE = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cboRole = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cboActive = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).BeginInit();
             this.grpChucNang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grpThongTin)).BeginInit();
             this.grpThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboActive.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboProfile.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -73,8 +75,6 @@
             this.gridSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRole.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboActive.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpChucNang
@@ -96,6 +96,7 @@
             this.btnXoa.Size = new System.Drawing.Size(226, 66);
             this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
@@ -104,6 +105,7 @@
             this.btnLuu.Size = new System.Drawing.Size(226, 66);
             this.btnLuu.TabIndex = 12;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnHuyBo
             // 
@@ -112,6 +114,7 @@
             this.btnHuyBo.Size = new System.Drawing.Size(226, 66);
             this.btnHuyBo.TabIndex = 10;
             this.btnHuyBo.Text = "Hủy bỏ";
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // btnThem
             // 
@@ -120,6 +123,7 @@
             this.btnThem.Size = new System.Drawing.Size(226, 66);
             this.btnThem.TabIndex = 10;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // grpThongTin
             // 
@@ -143,6 +147,26 @@
             this.grpThongTin.TabIndex = 14;
             this.grpThongTin.Text = "Thông tin User";
             // 
+            // cboActive
+            // 
+            this.cboActive.Location = new System.Drawing.Point(1163, 243);
+            this.cboActive.Name = "cboActive";
+            this.cboActive.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboActive.Size = new System.Drawing.Size(129, 50);
+            this.cboActive.TabIndex = 17;
+            this.cboActive.Click += new System.EventHandler(this.txt_Click);
+            // 
+            // cboRole
+            // 
+            this.cboRole.Location = new System.Drawing.Point(247, 241);
+            this.cboRole.Name = "cboRole";
+            this.cboRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboRole.Size = new System.Drawing.Size(339, 50);
+            this.cboRole.TabIndex = 16;
+            this.cboRole.Click += new System.EventHandler(this.txt_Click);
+            // 
             // cboNhanVien
             // 
             this.cboNhanVien.Location = new System.Drawing.Point(247, 92);
@@ -151,6 +175,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboNhanVien.Size = new System.Drawing.Size(339, 50);
             this.cboNhanVien.TabIndex = 15;
+            this.cboNhanVien.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl4
             // 
@@ -168,6 +193,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboProfile.Size = new System.Drawing.Size(339, 50);
             this.cboProfile.TabIndex = 3;
+            this.cboProfile.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl7
             // 
@@ -215,6 +241,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(386, 50);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Click += new System.EventHandler(this.txt_Click);
             // 
             // txtUsername
             // 
@@ -222,6 +249,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(386, 50);
             this.txtUsername.TabIndex = 2;
+            this.txtUsername.Click += new System.EventHandler(this.txt_Click);
             // 
             // txtQuota
             // 
@@ -229,6 +257,7 @@
             this.txtQuota.Name = "txtQuota";
             this.txtQuota.Size = new System.Drawing.Size(123, 50);
             this.txtQuota.TabIndex = 6;
+            this.txtQuota.Click += new System.EventHandler(this.txt_Click);
             // 
             // labelControl3
             // 
@@ -342,24 +371,6 @@
             this.ACTIVE.VisibleIndex = 5;
             this.ACTIVE.Width = 156;
             // 
-            // cboRole
-            // 
-            this.cboRole.Location = new System.Drawing.Point(247, 241);
-            this.cboRole.Name = "cboRole";
-            this.cboRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboRole.Size = new System.Drawing.Size(339, 50);
-            this.cboRole.TabIndex = 16;
-            // 
-            // cboActive
-            // 
-            this.cboActive.Location = new System.Drawing.Point(1163, 243);
-            this.cboActive.Name = "cboActive";
-            this.cboActive.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboActive.Size = new System.Drawing.Size(129, 50);
-            this.cboActive.TabIndex = 17;
-            // 
             // UsersGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 33F);
@@ -369,11 +380,14 @@
             this.Controls.Add(this.grpDanhSach);
             this.Name = "UsersGUI";
             this.Size = new System.Drawing.Size(2078, 1188);
+            this.Load += new System.EventHandler(this.UsersGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).EndInit();
             this.grpChucNang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grpThongTin)).EndInit();
             this.grpThongTin.ResumeLayout(false);
             this.grpThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboActive.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboProfile.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
@@ -385,8 +399,6 @@
             this.gridSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboRole.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboActive.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

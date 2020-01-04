@@ -47,8 +47,8 @@
             this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
             this.dgvPhong = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IDPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TENPHONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GIA = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grpChucNang)).BeginInit();
             this.grpChucNang.SuspendLayout();
@@ -230,30 +230,30 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.IDPHONG,
-            this.TENPHONG,
+            this.ID,
+            this.TEN,
             this.GIA});
             this.gridView1.GridControl = this.dgvPhong;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
-            // IDPHONG
+            // ID
             // 
-            this.IDPHONG.Caption = "ID Phòng";
-            this.IDPHONG.FieldName = "IDPHONG";
-            this.IDPHONG.Name = "IDPHONG";
-            this.IDPHONG.Visible = true;
-            this.IDPHONG.VisibleIndex = 0;
-            this.IDPHONG.Width = 162;
+            this.ID.Caption = "ID Phòng";
+            this.ID.FieldName = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = true;
+            this.ID.VisibleIndex = 0;
+            this.ID.Width = 162;
             // 
-            // TENPHONG
+            // TEN
             // 
-            this.TENPHONG.Caption = "Tên phòng";
-            this.TENPHONG.FieldName = "TENPHONG";
-            this.TENPHONG.Name = "TENPHONG";
-            this.TENPHONG.Visible = true;
-            this.TENPHONG.VisibleIndex = 1;
-            this.TENPHONG.Width = 257;
+            this.TEN.Caption = "Tên phòng";
+            this.TEN.FieldName = "TEN";
+            this.TEN.Name = "TEN";
+            this.TEN.Visible = true;
+            this.TEN.VisibleIndex = 1;
+            this.TEN.Width = 257;
             // 
             // GIA
             // 
@@ -314,8 +314,8 @@
         private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
         private DevExpress.XtraGrid.GridControl dgvPhong;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn IDPHONG;
-        private DevExpress.XtraGrid.Columns.GridColumn TENPHONG;
+        private DevExpress.XtraGrid.Columns.GridColumn ID;
+        private DevExpress.XtraGrid.Columns.GridColumn TEN;
         private DevExpress.XtraGrid.Columns.GridColumn GIA;
     }
 }

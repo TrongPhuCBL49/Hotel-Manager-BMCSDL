@@ -32,7 +32,7 @@ namespace DAO
             //               "From Phong as p, LoaiPhong as lp, TrangThai as tt Where p.IDLoai=lp.ID and p.IDTrangThai=tt.ID";
             //return DataProvider.Instance.getDS(query);
             OracleCommand cmd = DataProvider.conn.CreateCommand();
-            cmd.CommandText = "select * from QLPHONG";
+            cmd.CommandText = "select * from myboss.QLPHONG";
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable tbl = new DataTable();

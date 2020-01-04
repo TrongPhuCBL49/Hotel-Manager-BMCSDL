@@ -36,16 +36,22 @@ namespace GUI
         }
         public void BindingProfile()
         {
-            BindingSource source = new BindingSource();
-            source.DataSource = ProfileBUS.Instance.DSProfile();
-            source.DataSource = dgvProfile.DataSource;
-            txtID.DataBindings.Add("Text", source, "ID", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtTenProfile.DataBindings.Add("Text", source, "TEN", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtFalseLogin.DataBindings.Add("Text", source, "FALSELOGIN", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtSessionUser.DataBindings.Add("Text", source, "SESSIONUSER", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtConnectTime.DataBindings.Add("Text", source, "CONNECTTIME", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtIdleTime.DataBindings.Add("Text", source, "IDLETIME", true, DataSourceUpdateMode.OnPropertyChanged);
-            dgvProfile.DataSource = source;
+            try
+            {
+                BindingSource source = new BindingSource();
+                source.DataSource = ProfileBUS.Instance.DSProfile();
+                source.DataSource = dgvProfile.DataSource;
+                txtID.DataBindings.Add("Text", source, "ID", true, DataSourceUpdateMode.OnPropertyChanged);
+                txtTenProfile.DataBindings.Add("Text", source, "TEN", true, DataSourceUpdateMode.OnPropertyChanged);
+                txtFalseLogin.DataBindings.Add("Text", source, "FALSELOGIN", true, DataSourceUpdateMode.OnPropertyChanged);
+                txtSessionUser.DataBindings.Add("Text", source, "SESSIONUSER", true, DataSourceUpdateMode.OnPropertyChanged);
+                txtConnectTime.DataBindings.Add("Text", source, "CONNECTTIME", true, DataSourceUpdateMode.OnPropertyChanged);
+                txtIdleTime.DataBindings.Add("Text", source, "IDLETIME", true, DataSourceUpdateMode.OnPropertyChanged);
+                dgvProfile.DataSource = source;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void ClearText()

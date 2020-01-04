@@ -32,8 +32,8 @@ namespace DAO
             string host = "localhost";
             int port = 1521;
             string sid = "orcl";
-            string user = "myboss";
-            string password = "123456";
+            string user = userDTO.Username;
+            string password = userDTO.Pass;
             OracleConnection conn = DataProvider.Instance.GetDBConnection(host, port, sid, user, password);
             try
             {

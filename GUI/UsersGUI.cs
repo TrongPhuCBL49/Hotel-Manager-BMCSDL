@@ -23,13 +23,15 @@ namespace GUI
         private void UsersGUI_Load(object sender, EventArgs e)
         {
             LoadUsers();
-            //LoadLoaiPhong();
         }
         void LoadUsers()
         {
             dgvUsers.DataSource = UsersBUS.Instance.DSUsers();
-            //LoadTrangThai();
-            //BindingUsers();
+            //LoadNhanVien();
+            LoadProfile();
+            LoadActive();
+            LoadRole();
+            BindingUsers();
             isThem = false;
             cboNhanVien.Enabled = false;
             txtUsername.Enabled = false;
@@ -40,25 +42,25 @@ namespace GUI
         {
             DataTable dtbNhanVien = NhanVienBUS.Instance.DSNhanVien();
             foreach (DataRow row in dtbNhanVien.Rows)
-                cboNhanVien.Properties.Items.Add(row["Ten"]);
+                cboNhanVien.Properties.Items.Add(row["TEN"]);
         }
         void LoadProfile()
         {
             DataTable dtbProfile = ProfileBUS.Instance.DSProfile();
             foreach (DataRow row in dtbProfile.Rows)
-                cboProfile.Properties.Items.Add(row["Ten"]);
+                cboProfile.Properties.Items.Add(row["TEN"]);
         }
         void LoadRole()
         {
             DataTable dtbRole = RoleBUS.Instance.DSRole();
             foreach (DataRow row in dtbRole.Rows)
-                cboRole.Properties.Items.Add(row["Ten"]);
+                cboRole.Properties.Items.Add(row["TEN"]);
         }
         void LoadActive()
         {
             List<string> Active = new List<string>();
-            Active.Add("Yes");
-            Active.Add("No");
+            Active.Add("1");
+            Active.Add("0");
             cboActive.Properties.Items.AddRange(Active);
         }
         public void BindingUsers()
